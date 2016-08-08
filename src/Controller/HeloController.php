@@ -5,29 +5,16 @@ use App\Controller\AppController;
  
 class HeloController extends AppController
 {
-    public function index($a = '')
+    public function index()
     {
-        //$this->set('message', 'Hello! this is sample page. ;-)');
-        if ($a == '') {
-            $this->setAction('err');
-            return;
+//        $this->set('message', 'Hello! this is sample page. ;-)');
+//        $hage = $this->request->data('hoge');
+        $str = $this->request->data('hoge');
+        if ($str != null){
+            $str = $this->request->data['hoge'];
+            $this->set('message', 'you typed:' . $str);
+        } else {
+            $this->set('message','please type...');
         }
-        $this->autoRender = false;
-        echo "<html><head></head><body>";
-        echo "<h1>Hello!</h1>";
-        echo "<p>これは、サンプルで作成したページです。</p><p>";
-
-	echo " パラメータ: " . $a;
-
-        echo "</p></body></html>";
-    }
-
-    public function err()
-    {
-        $this->autoRender = false;
-        echo "<html><head></head><body>";
-        echo "<h1>Hello!</h1>";
-        echo "<p>パラメータがありませんでした。</p>";
-        echo "</body></html>";
     }
 }

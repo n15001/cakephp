@@ -1,9 +1,12 @@
 <div>
     <h3>Index Page</h3>
     <p><?= $message ?></p>
-    
-  <form method="post" action="/sample/helo/index">
-    <input type="text" name="hoge">
-    <input type="submit">
-  </form>
+    <?=$this->Form->create(null,[
+        'type' => 'post',
+        'url' => ['controller' => 'Helo', 'action' => 'index']]
+    ) ?>
+    <?=$this->Form->text('hoge') ?>
+    <?=$this->Form->submit('OK') ?>
+    <?=$this->Form->end() ?>
+    </form>
 </div>
